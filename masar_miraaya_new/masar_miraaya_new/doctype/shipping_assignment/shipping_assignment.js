@@ -50,7 +50,7 @@ function fetch_orders(frm) {
                             row.customer = order.customer;
                             row.customer_name = order.customer_name;
                             row.grand_total = order.grand_total;
-                            row.delivery_zone = frm.doc.delivery_zone;
+                            row.delivery_zone = order.custom_delivery_zone || frm.doc.delivery_zone;
                         });
                         frm.refresh_field("orders");
                     } else {
