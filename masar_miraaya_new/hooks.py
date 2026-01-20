@@ -43,7 +43,9 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+   "Pick List": "custom/pick_list/pick_list.js"
+}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -137,13 +139,12 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Pick List": {
+		"validate": "masar_miraaya_new.custom.pick_list.pick_list.validate",
+		"on_submit": "masar_miraaya_new.custom.pick_list.pick_list.on_submit"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -242,3 +243,26 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {"dt": "Custom Field", "filters": [
+        [
+            "name", "in", [
+                "Pick List-custom_section_break_l95fh",
+                "Pick List-custom_picking_duration",
+                "Pick List-custom_column_break_gh0gy",
+                "Pick List-custom_packing_duration",
+                "Pick List-custom_section_break_gwriy",
+                "Pick List-custom_delivery_zone",
+                "Pick List-custom_section_break_rzfqg",
+                "Pick List-custom_delivery_company",
+                "Pick List-custom_delivery_company_name",
+                "Pick List-custom_column_break_ygsjn",
+                "Pick List-custom_driver",
+                "Pick List-custom_driver_name",
+                "Pick List-custom_packaging_items",
+                "Pick List-custom_column_break_skt6f",
+                "Pick List-custom_district"
+            ]
+        ]
+    ]}
+]
